@@ -1,11 +1,13 @@
-import Helper.ReadData as rd
+# import Helper.ReadData as rd
+from Helper.ReadData import CleanData
+
 import pandas as pd
 import os
 import seaborn as sns
 import matplotlib.pyplot as plt
 
 fileloc1 = '\\Dataset\\P4-Movie-Ratings.csv'
-
+fileloc2 = '\\Dataset\\P4-Demographic-Data.csv'
 
 location = os.getcwd() + fileloc1
 
@@ -30,7 +32,7 @@ print(data[21:36][lista[:3]])
 
 
 # CLEANING THE HEADERS OF DATASET
-cData = rd.CleanData(location)
+cData = CleanData(location)
 dataFrame = cData.getData()
 print(dataFrame.head())
 
@@ -77,3 +79,7 @@ j = sns.jointplot(data=dataFrame, x='RottenTomatoesRatings',
                   y='AudienceRatings', kind='reg')
 
 plt.show()
+
+
+if __name__ == "__main__":
+    print("Test")
